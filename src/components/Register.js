@@ -3,15 +3,15 @@ import axios from 'axios';
 
 export default class login extends Component {
     state = {
-        form:{
+        form: {
             user: '',
             password: ''
         }
-   
+
 
     }
 
-   
+
 
     handleChange = async e => {
         await this.setState({
@@ -25,37 +25,40 @@ export default class login extends Component {
 
     iniciarSesion = async () => {
 
-        await axios.post('http://167.99.162.146/users/register', 
-        {params:
-            {user:this.state.form.user,
-            password:this.state.form.password,
-            }
-        }
-        ,{headers:
+        const res = await axios.post('http://167.99.162.146/users/register',
             {
-                access_token:"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"
 
-            }});
-    
-        window.location.href = '/feed';
+                user: this.state.form.user,
+                password: this.state.form.password,
+
+            }, {
+                headers: {
+
+                    'Content-Type': 'application/json'
+
+                }
+        }
+        );
+
+        window.location.href = '/login';
 
     }
 
     render() {
         return (
-            <div>
+            <div className="centr">
                 <div className="box">
                     <div className="text-center">
                         <div className="form-group">
-                            <h1>Rgister</h1>
+                            <h1>Register</h1>
                             <label >User</label>
                             <br />
                             <input type="text"
-                                className="form-control" name="user" onChange={this.handleChange}  value={this.state.form.user} />
+                                className="form-control" name="user" onChange={this.handleChange} value={this.state.form.user} />
                             <br />
                             <label >Password</label>
                             <input type="password"
-                                className="form-control" name="password" onChange={this.handleChange}  value={this.state.form.password}/>
+                                className="form-control" name="password" onChange={this.handleChange} value={this.state.form.password} />
                             <br />
                             <button className="btn btn-primary" onClick={() => this.iniciarSesion()}>Registrarse</button>
                         </div>
@@ -63,7 +66,7 @@ export default class login extends Component {
 
 
                 </div>
-                <a href="/"><button className="btn btn-primary">Back to Homepage</button></a>
+            
             </div>
 
         )

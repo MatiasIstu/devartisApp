@@ -7,19 +7,22 @@ import Login from './components/Login'
 import Register from './components/Register'
 import Homepage from './components/Homepage'
 import Feed from './components/Feed'
+import Articulos from './components/Articulos'
 function App() {
   return (
     <Router>
 
-      <div className="container p-4">
-        
+        <div className="container p-4">
         <Route path="/" exact component={Homepage} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
-        <Route path="/feed" exact component={Feed} />
+        <Route path="/feed/:access_token" exact component={Feed} />
+        <Route path="/feed/:id/articles/:access_token" exact component={Articulos} />
 
+        </div>
+        
 
-      </div>
+      
     </Router>
   );
 }

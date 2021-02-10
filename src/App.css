@@ -2,19 +2,40 @@ body{
   background-color: black;
   color:white;
 }
+.boton {
+  width: 240px;
+  margin:20px;
+  padding:10px;
+  transition-duration: 0.4s;
+}
 
-
-
-.boton{
-  
-  color:red;
+.boton:hover {
+  background-color: #4CAF50; 
+  color: white;
 }
 .box{
   border-radius: 5px;
   color:black;
   margin: auto;
-  width: 50%;
+  width: 400px;
   top:50%;
   background-color: white;
   padding: 10px;
+}
+
+.ss{
+  display:flex;
+  justify-content: space-between;
+}
+
+.padd{
+  margin-right: 10px;
+}
+
+.centr{
+  height: 80vh;
+  display:flex;
+  margin:auto;
+  
+  
 }
